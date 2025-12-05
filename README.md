@@ -1,5 +1,5 @@
 # dotfiles
-managed by [chezmoi](chezmoi.io) 
+managed by [chezmoi](https://chezmoi.io) 
 
 ## To update
 
