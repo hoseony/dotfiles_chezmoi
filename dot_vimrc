@@ -11,7 +11,7 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'mnishz/colorscheme-preview.vim'
 Plugin 'felixhummel/setcolors.vim'
-
+Plugin 'preservim/nerdtree' 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
