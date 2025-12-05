@@ -1,0 +1,4 @@
+alias dc='cd '
+alias ll='ls -lh'
+alias v='vim'
+alias cdh='cd ~'
