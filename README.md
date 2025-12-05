@@ -1,13 +1,13 @@
-#dotfiles (managed by chezmoi)
+# dotfiles (managed by chezmoi)
 
 
-##To update
-chezmoi diff
+## To update
+chezmoi diff \
 chezmoi add ~/.filename \
-chezmoi -v apply
+chezmoi -v apply \
 
-chezmoi cd
-git add .
-gcm "comment"
+chezmoi cd \
+git add . \ 
+gcm "comment" \
 gpuom
 
