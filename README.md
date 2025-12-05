@@ -1,4 +1,5 @@
-# dotfiles (managed by chezmoi)
+# dotfiles
+managed by [chezmoi](chezmoi.io) 
 
 ## To update
 
