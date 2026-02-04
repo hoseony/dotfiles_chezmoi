@@ -1,7 +1,26 @@
 set nocompatible              " be iMproved, required
+
+" Vim is based on Vi. Setting `nocompatible` switches from the default
+" Vi-compatibility mode and enables useful Vim functionality. This
+" configuration option turns out not to be necessary for the file named
+" '~/.vimrc', because Vim automatically enters nocompatible mode if that file
+" is present. But we're including it here just in case this config file is
+" loaded some other way (e.g. saved as `foo`, and then Vim started with
+" `vim -u foo`).
+
 filetype off                  " required
 
-set rtp+=~/.vim/bundle/Vundle.vim
+"----------------------------------"
+
+set rtp+=~/.vim/bundle/Vundle.vim "I am currently using vundle to manage plugins, 
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+
+" see :h vundle for more details or wiki for FAQ
+" see :h vundle for more details or wiki for FAQ
 call vundle#begin()
 
 Plugin 'flazz/vim-colorschemes'
@@ -17,31 +36,14 @@ Plugin 'mhinz/vim-startify'
 Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
+call vundle#end()
+
+"----------------------------------"
+"this section was directly from MIT-missing semester
+
+filetype plugin indent on
+"To ignore plugin indent changes, instead use:
 "filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-
-" Put your non-Plugin stuff after this line" Comments in Vimscript start with a `"`.
-
-" If you open this file in Vim, it'll be syntax highlighted for you.
-
-" Vim is based on Vi. Setting `nocompatible` switches from the default
-" Vi-compatibility mode and enables useful Vim functionality. This
-" configuration option turns out not to be necessary for the file named
-" '~/.vimrc', because Vim automatically enters nocompatible mode if that file
-" is present. But we're including it here just in case this config file is
-" loaded some other way (e.g. saved as `foo`, and then Vim started with
-" `vim -u foo`).
-set nocompatible
 
 " Turn on syntax highlighting.
 syntax on
@@ -110,6 +112,12 @@ inoremap <Left>  <ESC>:echoe "Use h"<CR>
 inoremap <Right> <ESC>:echoe "Use l"<CR>
 inoremap <Up>    <ESC>:echoe "Use k"<CR>
 inoremap <Down>  <ESC>:echoe "Use j"<CR>
+
+"* Well, I think it depends on your purpose of using vim, but I also believe
+"this is good addtion
+
+"----------------------------------"
+"key binding for some plugins
 nmap <C-s> <Plug>MarkdownPreview
 
 let g:ctrlp_map = '<c-p>'
@@ -118,20 +126,25 @@ let g:ctrlp_cmd = 'CtrlP'
 color Atelier_ForestDark
 map <C-n> :NERDTreeToggle<CR>
 
+"----------------------------------"
+"this fixes the indent
 set softtabstop=4
 set tabstop=4
 set shiftwidth=4
 set expandtab
 set clipboard=unnamed
 
-" Trigger completion
+"----------------------------------"
+"Code autocompletion, https://github.com/neoclide/coc.nvim to see more
+
+"Trigger completion
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" : "\<TAB>"
 
-" Go to definition
+"Go to definition
 nmap <silent> gd <Plug>(coc-definition)
 
-" Hover docs
+"Hover docs
 nmap <silent> K :call CocActionAsync('doHover')<CR>
 
 
@@ -139,6 +152,20 @@ function! Get_random_offset(max) abort
   return str2nr(matchstr(reltimestr(reltime()), '\.\zs\d\+')[1:]) % a:max
 endfunction
 
+"----------------------------------"
+"this autocompletes stuff
+inoremap " ""<left>
+inoremap ' ''<left>
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
+inoremap {<CR> {<CR>}<ESC>O
+inoremap {;<CR> {<CR>};<ESC>O
+
+"----------------------------------"
+
+"this is for vim startify, I made it so that you can print multiple texts that
+"you fish to show via adding more on asciis array."
 set encoding=utf-8
 let g:startify_padding_left = 0
 autocmd FileType startify setlocal nolist
