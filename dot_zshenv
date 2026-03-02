@@ -7,3 +7,9 @@ alias gs='git status'
 alias gpuom='git push -u origin main'
 alias ga.='git add .'
 alias ga='git add'
+alias lucas='gcc'
+
+export PICO_SDK_PATH=/Users/hoseonyu/pico/pico-sdk
+
+bindkey "\e[1;9C" forward-word   # Option + Right
+bindkey "\e[1;9D" backward-word  # Option + Left
