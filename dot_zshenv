@@ -7,7 +7,7 @@ alias gs='git status'
 alias gpuom='git push -u origin main'
 alias ga.='git add .'
 alias ga='git add'
-alias lucas='gcc'
+alias br='broot'
 
 export PICO_SDK_PATH=/Users/hoseonyu/pico/pico-sdk
 

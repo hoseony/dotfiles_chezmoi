@@ -22,7 +22,6 @@ set rtp+=~/.vim/bundle/Vundle.vim "I am currently using vundle to manage plugins
 " see :h vundle for more details or wiki for FAQ
 " see :h vundle for more details or wiki for FAQ
 call vundle#begin()
-
 Plugin 'flazz/vim-colorschemes'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'mnishz/colorscheme-preview.vim'
@@ -32,7 +31,6 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'kien/ctrlp.vim'
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'mhinz/vim-startify'
-
 Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 
 " All of your Plugins must be added before the following line
