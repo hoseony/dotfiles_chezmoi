@@ -1,15 +1,35 @@
 alias dc='cd '
 alias ll='ls -lh'
 alias v='vim'
+alias n='nvim'
+alias nv='NVIM_APPNAME=nvim-alt nvim'
 alias cdh='cd ~'
+
 alias gcm='git commit -m'
 alias gs='git status'
 alias gpuom='git push -u origin main'
 alias ga.='git add .'
 alias ga='git add'
+
 alias br='broot'
 
-export PICO_SDK_PATH=/Users/hoseonyu/pico/pico-sdk
-
+# ------------------------------------------------------
+# This allos moving cursor by words
 bindkey "\e[1;9C" forward-word   # Option + Right
 bindkey "\e[1;9D" backward-word  # Option + Left
+# ------------------------------------------------------
+# These are for debug probe that I am working on
+export PICO_SDK_PATH=/Users/hoseonyu/pico/pico-sdk
+
+cmakebuild() {
+    rm -rf build
+    mkdir build
+    cd build
+    cmake ../source
+    make -j5
+}
+
+alias openocd-2350='sudo openocd -f interface/cmsis-dap.cfg -f target/rp2350.cfg -c "adapter speed 5000"'
+# ------------------------------------------------------
+export CLICOLOR=1
+export LSCOLORS=ExFxCxDxBxegedabagacad
