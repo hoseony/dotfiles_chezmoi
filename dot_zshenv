@@ -1,5 +1,11 @@
 alias dc='cd '
+
 alias ll='ls -lh'
+alias ls='eza --icons'
+alias la='eza -la --icons --git'
+alias tree='eza --tree --icons'
+alias sl='ls'
+
 alias v='vim'
 alias n='nvim'
 alias nv='NVIM_APPNAME=nvim-alt nvim'
@@ -33,3 +39,5 @@ alias openocd-2350='sudo openocd -f interface/cmsis-dap.cfg -f target/rp2350.cfg
 # ------------------------------------------------------
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
+
+. "$HOME/.cargo/env"

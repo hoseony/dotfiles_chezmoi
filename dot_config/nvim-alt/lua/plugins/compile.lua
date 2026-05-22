@@ -7,7 +7,7 @@ return {
   config = function()
     vim.g.compile_mode = {
       default_command = {
-        c = "gcc -Wall -Wextra ",
+        c = "gcc -Wall -Wextra -fno-diagnostics-color ",
       },
       use_pseudo_terminal = true,
     }
