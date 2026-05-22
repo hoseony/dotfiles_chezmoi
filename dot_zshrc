@@ -1,0 +1,37 @@
+# ----------------------------------------------------------
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+source /usr/local/share/powerlevel10k/powerlevel10k.zsh-theme
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# ----------------------------------------------------------
+
+# fzf
+source <(fzf --zsh)
+function cdf() {
+  local dir
+  dir=$(find . -path '*/\.*' -prune -o -type d -print 2>/dev/null | fzf +m) && builtin cd "$dir"
+}
+
+# eza color
+export EZA_COLORS="ur=90:uw=90:ux=90:ue=90:gr=90:gw=90:gx=90:tr=90:tw=90:tx=90:su=90:sf=90:xa=90"
+
+# ----------------------------------------------------------
+# Created by `pipx` on 2026-01-22 21:10:05
+export PATH="$PATH:/Users/hoseonyu/.local/bin"
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+eval "$(rbenv init - zsh)"
+
+# zsh auto-suggestions / syntax-highlighting
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# zig 
+export PATH="$PATH:/opt/homebrew/opt/zig/"
