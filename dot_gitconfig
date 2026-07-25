@@ -1,3 +1,8 @@
 [user]
 	name = hoseony
 	email = hoseon.alex.yu@gmail.com
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f

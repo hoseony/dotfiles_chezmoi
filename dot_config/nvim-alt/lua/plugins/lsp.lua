@@ -4,7 +4,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     dependencies = { "williamboman/mason.nvim" },
     opts = {
-      ensure_installed = { "clangd", "pyright", "bashls", "lua_ls", "vimls" },
+      ensure_installed = { "clangd", "pyright", "bashls", "lua_ls", "vimls", "rust_analyzer" },
     },
   },
   {
@@ -12,7 +12,7 @@ return {
     dependencies = { "hrsh7th/cmp-nvim-lsp" },
     config = function()
       local caps = require("cmp_nvim_lsp").default_capabilities()
-      local servers = { "clangd", "pyright", "bashls", "vimls" }
+      local servers = { "clangd", "pyright", "bashls", "vimls", "rust_analyzer" }
       for _, s in ipairs(servers) do
         vim.lsp.config(s, { capabilities = caps })
         vim.lsp.enable(s)
@@ -34,6 +34,20 @@ return {
       map("gr",           vim.lsp.buf.references)
       map("<leader>ca",   vim.lsp.buf.code_action)
       map("<leader>rn",   vim.lsp.buf.rename)
+
+      vim.opt.updatetime = 700
+      local hover_group = vim.api.nvim_create_augroup("LspAutoHover", { clear = true })
+      vim.api.nvim_create_autocmd("CursorHold", {
+        group = hover_group,
+        callback = function(args)
+          for _, client in ipairs(vim.lsp.get_clients({ bufnr = args.buf })) do
+            if client:supports_method("textDocument/hover") then
+              vim.lsp.buf.hover({ border = "rounded", focusable = false })
+              return
+            end
+          end
+        end,
+      })
     end,
   },
 }

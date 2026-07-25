@@ -9,7 +9,8 @@ return {
       default_command = {
         c = "gcc -Wall -Wextra -fno-diagnostics-color ",
       },
-      use_pseudo_terminal = true,
+      use_pseudo_terminal = false,
+      focus_compilation_buffer = true,
     }
 
     vim.api.nvim_create_autocmd("FileType", {

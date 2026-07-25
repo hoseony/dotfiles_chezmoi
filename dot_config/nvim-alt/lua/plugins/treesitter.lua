@@ -5,7 +5,7 @@ return {
     vim.treesitter.language.register("bash", "sh")
 
     require("nvim-treesitter").setup({
-      ensure_installed = { "c", "lua", "python", "bash", "vim", "vimdoc" },
+      ensure_installed = { "c", "lua", "python", "bash", "vim", "vimdoc", "markdown", "markdown_inline", "html", "yaml" },
       auto_install = true,
     })
   end,
