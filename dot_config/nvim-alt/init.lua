@@ -21,19 +21,4 @@ vim.opt.termguicolors = true
 vim.opt.pumheight     = 10
 vim.opt.completeopt   = "menu,menuone,noinsert"
 
-local diagnostic_wrap = require("diagnostic_wrap")
-diagnostic_wrap.anchor_virtual_lines_to_start()
-
-vim.diagnostic.config({
-  virtual_text = {
-    format = function()
-      return ""
-    end,
-    spacing = 1,
-  },
-  virtual_lines = {
-    format = diagnostic_wrap.format,
-  },
-})
-
 require("lazy").setup("plugins")  -- auto-imports everything in lua/plugins/

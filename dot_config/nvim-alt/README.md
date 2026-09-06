@@ -19,18 +19,6 @@ The leader key is `Space`.
 | `Space f b` | Find an open buffer |
 | `Space f h` | Search Neovim help |
 
-### Subword movement
-
-These use Spider's default movement rules for names such as `camelCase`,
-`snake_case`, and `kebab-case`.
-
-| Shortcut | Action |
-| --- | --- |
-| `w` | Move to the next subword |
-| `e` | Move to the end of the current or next subword |
-| `b` | Move to the previous subword |
-| `g e` | Move to the end of the previous subword |
-
 ### LSP and code navigation
 
 These work when a language server is attached to the current file.
@@ -89,15 +77,22 @@ These shortcuts apply while typing in Insert mode.
 | Shortcut | Action |
 | --- | --- |
 | `Ctrl-Space` | Open the completion menu |
-| `Down` / `Tab` | Select the next completion item |
+| `Down` | Select the next completion item |
 | `Up` / `Shift-Tab` | Select the previous completion item |
 | `Enter` | Accept the explicitly selected item |
 | `Ctrl-e` | Close the completion menu |
-| `Tab` | Expand a snippet or jump to its next field when no completion menu is open |
+| `Tab` | Expand or advance a snippet; otherwise select the next completion item |
 | `Shift-Tab` | Jump to the previous snippet field |
 
 Completion suggestions come from the language server, snippets, filesystem
 paths, and words in open buffers.
+
+Custom C and C++ snippets:
+
+| Trigger | Expansion |
+| --- | --- |
+| `guard` + `Tab` | Header guard derived from the current file path |
+| `func` + `Tab` | Function skeleton with editable return type, name, arguments, and body |
 
 ## Diagnostics and hover
 
@@ -139,6 +134,7 @@ Mason manages these configured language servers:
 - Bash: `bash-language-server`
 - Lua: `lua-language-server`
 - Vim script: `vim-language-server`
+- Markdown grammar and spelling: `harper-ls`
 
 Useful commands:
 

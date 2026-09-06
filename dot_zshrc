@@ -52,3 +52,5 @@ export PATH="$PATH:/opt/homebrew/opt/zig/"
 source $(brew --prefix)/opt/chruby/share/chruby/chruby.sh
 source $(brew --prefix)/opt/chruby/share/chruby/auto.sh
 chruby ruby-3.3.4
+
+export PATH=$PATH:/Users/hoseonyu/.spicetify
