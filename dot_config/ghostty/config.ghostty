@@ -5,3 +5,8 @@ theme = Hybrid
 
 font-family = Fira Code
 font-size = 12
+
+background-opacity = 0.9
+background-blur = 30
+
+config-file = ?~/.config/ghostty/backgrounds/active.conf

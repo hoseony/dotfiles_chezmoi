@@ -27,8 +27,8 @@ lfcd() {
 }
 
 
-# eza color
-export EZA_COLORS="ur=90:uw=90:ux=90:ue=90:gr=90:gw=90:gx=90:tr=90:tw=90:tx=90:su=90:sf=90:xa=90"
+# Keep eza's built-in colors (including colored permission bits).
+unset EZA_COLORS
 
 export EDITOR='env NVIM_APPNAME=nvim-alt nvim'
 export VISUAL="$EDITOR"
@@ -53,4 +53,23 @@ source $(brew --prefix)/opt/chruby/share/chruby/chruby.sh
 source $(brew --prefix)/opt/chruby/share/chruby/auto.sh
 chruby ruby-3.3.4
 
-export PATH=$PATH:/Users/hoseonyu/.spicetify
+export PATH="$PATH:/Users/hoseonyu/.spicetify"
+
+gbg() {
+  local dir=~/.config/ghostty/backgrounds
+  local active="$dir/active.conf"
+
+  if [ -n "$1" ]; then
+    ln -sfn "$dir/$1.conf" "$active"
+    echo "Switched to background $1"
+  else
+    # no argument: clear the background entirely
+    rm -f "$active"
+    : > "$active"
+    echo "Background cleared"
+  fi
+
+  osascript -e 'tell application "System Events" to tell process "Ghostty" to click menu item "Reload Configuration" of menu "Ghostty" of menu bar 1'
+}
+
+export PATH="/usr/local/texlive/2026/bin/universal-darwin:$PATH"
